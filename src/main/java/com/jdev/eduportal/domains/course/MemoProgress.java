@@ -24,5 +24,5 @@ public class MemoProgress {
 
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_course_content", nullable = false)
-    private CourseContent courseContent;
+    private Question question;
 }

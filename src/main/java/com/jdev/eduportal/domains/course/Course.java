@@ -19,10 +19,21 @@ public class Course {
     private String courseName;
     private String description;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-    private List<CourseContent> courseContents;
+    @OneToMany(mappedBy = "course")
+    private List<Question> questions;
 
     @ManyToMany(mappedBy = "courses")
     private List<User> users;
 
+    public Course() {
+    }
+
+    public Course(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public Course(String courseName, String description) {
+        this.courseName = courseName;
+        this.description = description;
+    }
 }

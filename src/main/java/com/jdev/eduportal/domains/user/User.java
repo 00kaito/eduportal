@@ -49,7 +49,7 @@ public class User {
         if(null == course || null == course.get()){
             throw new IllegalStateException("Course id not exist");
         }
-        List<List<MemoProgress>> specificCourseMemoProgress = course.get().getCourseContents().stream().map(c -> c.getMemoProgresses()).collect(Collectors.toList());
+        List<List<MemoProgress>> specificCourseMemoProgress = course.get().getQuestions().stream().map(c -> c.getMemoProgresses()).collect(Collectors.toList());
     }
 
 }
