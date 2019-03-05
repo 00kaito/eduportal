@@ -26,6 +26,10 @@ public class User {
     @NotBlank(message = "Email is mandatory")
     private String email;
 
+    @NotBlank(message = "Email is mandatory")
+    private String password;
+
+
     @ManyToMany
     @JoinTable(name = "user_course",
             joinColumns = @JoinColumn(name = "fk_user"),
@@ -37,6 +41,12 @@ public class User {
 
 
     public User() {
+    }
+
+    public User(@NotBlank(message = "Name is mandatory") String name, @NotBlank(message = "Email is mandatory") String email, @NotBlank(message = "Email is mandatory") String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
     public User(@NotBlank(message = "Name is mandatory") String name, @NotBlank(message = "Email is mandatory") String email) {

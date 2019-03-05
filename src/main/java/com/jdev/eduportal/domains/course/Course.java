@@ -19,7 +19,7 @@ public class Course {
     private String courseName;
     private String description;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     private List<Question> questions;
 
     @ManyToMany(mappedBy = "courses")

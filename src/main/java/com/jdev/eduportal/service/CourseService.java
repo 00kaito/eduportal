@@ -1,8 +1,6 @@
 package com.jdev.eduportal.service;
 
 import com.jdev.eduportal.domains.course.Course;
-import com.jdev.eduportal.domains.course.Question;
-import com.jdev.eduportal.domains.course.QuestionRepository;
 import com.jdev.eduportal.domains.course.CourseRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +10,10 @@ import java.util.Optional;
 public class CourseService {
 
     CourseRepository courseRepo;
-    QuestionRepository questionRepo;
 
-    public CourseService(CourseRepository courseRepo, QuestionRepository questionRepo) {
+
+    public CourseService(CourseRepository courseRepo) {
         this.courseRepo = courseRepo;
-        this.questionRepo = questionRepo;
     }
 
 
@@ -37,28 +34,31 @@ public class CourseService {
         return course;
     }
 
-
-
-    public boolean addNewQuestion(Question question, Course course){
-        return addNewQuestion( question.getQuestion(), question.getAnswer(), course);
-    }
-
-        public boolean addNewQuestion(String question, String answer, Course course){
-        Question questionElement = new Question(question, answer, course);
-        questionRepo.save(questionElement);
-        if(questionRepo.findById(questionElement.getId()).isPresent()){
+    public boolean removeCourse(Course course){
+        if(course !=null && courseRepo.findById(course.getId()).isPresent()){
+            courseRepo.delete(course);
             return true;
         }
         return false;
     }
 
-    public boolean removeQuestionById(Long questionId){
-        Optional<Question> question = questionRepo.findById(questionId);
-        if(question.isPresent()){
-            questionRepo.delete(question.get());
-            return true;
-        }
-        return false;
+    public Optional<Course> findCourseById(Long id){
+        return courseRepo.findById(id);
     }
+
+
+    public boolean removeCourseById(Long courseId){
+
+        DbSecureRemover dbSecureRemover = new DbSecureRemover(courseRepo);
+        return dbSecureRemover.removeElementById(courseId);
+//
+//        Optional<Course> course = courseRepo.findById(courseId);
+//        if(course.isPresent()){
+//            courseRepo.delete(course.get());
+//            return true;
+//        }
+//        return false;
+    }
+
 
 }

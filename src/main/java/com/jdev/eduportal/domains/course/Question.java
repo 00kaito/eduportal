@@ -18,10 +18,10 @@ public class Question {
     private String question;
     private String answer;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Course course;
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
     private List<MemoProgress> memoProgresses;
 
     public Question() {

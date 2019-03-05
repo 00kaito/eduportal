@@ -3,20 +3,25 @@ package com.jdev.eduportal.domains.course;
 import com.jdev.eduportal.domains.user.User;
 import com.jdev.eduportal.domains.user.UserRepository;
 import com.jdev.eduportal.service.CourseService;
+import com.jdev.eduportal.service.QuestionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 @Controller
 public class CourseController {
     UserRepository userRepository;
 
     CourseService courseService;
+    QuestionService questionService;
 
-    public CourseController(UserRepository userRepository, CourseService courseService) {
+    public CourseController(UserRepository userRepository, CourseService courseService, QuestionService questionService) {
         this.userRepository = userRepository;
         this.courseService = courseService;
+        this.questionService = questionService;
     }
 
     @GetMapping({"","/","index"})
@@ -44,12 +49,11 @@ public class CourseController {
 //        System.out.println(course.getId());
 //        courseService.createNewCourse(course);
 //        System.out.println(course.getId());
-        courseService.addNewQuestion(question1, course);
+        questionService.addNewQuestion(question1, course);
         System.out.println(course.getId());
 
-        courseService.addNewQuestion(question2, course);
-        courseService.addNewQuestion(question3, course);
-
+        questionService.addNewQuestion(question2, course);
+        questionService.addNewQuestion(question3, course);
 
 //        user.getMemoProgresses();
 
@@ -59,7 +63,16 @@ public class CourseController {
         return "index";
     }
 
-    private void initCourseContent(Course course1, Course course2, Course course3) {
+    @ResponseBody
+    @GetMapping("/delete")
+    public String deleteCourse(){
+            questionService.removeQuestion(1L);
+
+        return "deleted: 1" ;
+    }
+
+
+        private void initCourseContent(Course course1, Course course2, Course course3) {
 
 
     }
