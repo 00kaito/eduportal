@@ -1,4 +1,6 @@
-INSERT INTO COURSE (id, course_name, description) VALUES (1, 'Java Demo Questions', 'Demo interview questions for Java Developers');
+INSERT INTO USER (name, email, password) VALUES ('demo','demo@demo.com', '$2a$11$loeOd5CaoMBswwd4dUhio.h7MRXe.728PhtGSI5m2sQ9cd4Ek7jhi');
+
+INSERT INTO COURSE (id, name, description) VALUES (1, 'Java Demo Questions', 'Demo interview questions for Java Developers');
 
 INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What is encapsulation', 'Encapsulation provides objects with the ability to hide their internal characteristics and behavior. Each object provides a number
 of methods, which can be accessed by other objects and change its internal data. In Java, there are three access modifiers: public,
@@ -39,12 +41,12 @@ hardware platform.
 ', 1);
 INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What is the Difference between JDK and JRE ?', 'The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed.
 It also includes browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development
-Kit for Java, including the JRE, the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile
+Kit for Java, including the JRE, the compilers and tools (like JavaDoc, and Java Debugger), in order for a auth to develop, compile
 and execute Java applications.
 
 ', 1);
 INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What does the “static” keyword mean ? Can you override private or static method in Java ?', 'The static keyword denotes that a member variable or method can be accessed, without requiring an instantiation of the class to
-which it belongs. A user cannot override static methods in Java, because method overriding is based upon dynamic binding at
+which it belongs. A auth cannot override static methods in Java, because method overriding is based upon dynamic binding at
 runtime and static methods are statically binded at compile time. A static method is not associated with any instance of a class
 so the concept is not applicable.
 
@@ -320,7 +322,7 @@ or a constructor’s throws clause. See here for tips on Java exception handling
 
 ', 1);
 INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What is the difference between Exception and Error in java ?', 'Exception and Error classes are both subclasses of the Throwable class. The Exception class is used for exceptional conditions
-that a user’s program should catch. The Error class defines exceptions that are not excepted to be caught by the user program.
+that a auth’s program should catch. The Error class defines exceptions that are not excepted to be caught by the auth program.
 
 ', 1);
 INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What is the difference between throw and throws ?', 'The throw keyword is used to explicitly raise a exception within the program. On the contrary, the throws clause is used to
@@ -394,7 +396,7 @@ INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What is the applet s
 manager. The security manager is established at startup, and it cannot thereafter be replaced, overloaded, overridden, or extended.
 
 ', 1);
-INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What is the difference between a Choice and a List ?', 'A Choice is displayed in a compact form that must be pulled down, in order for a user to be able to see the list of all available
+INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What is the difference between a Choice and a List ?', 'A Choice is displayed in a compact form that must be pulled down, in order for a auth to be able to see the list of all available
 choices. Only one item may be selected from a Choice. A List may be displayed in such a way that several List items are visible.
 A List supports the selection of one or more List items.
 
@@ -466,7 +468,7 @@ with different input values to their queries.
 ', 1);
 INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What is the use of CallableStatement ? Name the method, which is used to', 'prepare a CallableStatement.
 A CallableStatement is used to execute stored procedures. Stored procedures are stored and offered by a database. Stored
-procedures may take input values from the user and may return a result. The usage of stored procedures is highly encouraged,
+procedures may take input values from the auth and may return a result. The usage of stored procedures is highly encouraged,
 because it offers security and modularity.The method that prepares a CallableStatement is the following: CallableStament.
 prepareCall();
 
@@ -481,7 +483,7 @@ requests.
 INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What is RMI ?', 'The Java Remote Method Invocation (Java RMI) is a Java API that performs the object-oriented equivalent of remote procedure
 calls (RPC), with support for direct transfer of serialized Java classes and distributed garbage collection. Remote Method Invoca-
 tion (RMI) can also be seen as the process of activating a method on a remotely running object. RMI offers location transparency
-because a user feels that a method is executed on a locally running object. Check some RMI Tips here.
+because a auth feels that a method is executed on a locally running object. Check some RMI Tips here.
 
 ', 1);
 INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What is the basic principle of RMI architecture ?', 'The RMI architecture is based on a very important principle which states that the definition of the behavior and the implemen-
@@ -569,8 +571,8 @@ servlet is able to serve multiple requests in parallel using multithreading.
 
 ', 1);
 INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What is the difference between an Applet and a Servlet ?', 'An Applet is a client side java program that runs within a Web browser on the client machine. On the other hand, a servlet is a
-server side component that runs on the web server.An applet can use the user interface classes, while a servlet does not have a
-user interface. Instead, a servlet waits for client’s HTTP requests and generates a response in every request.
+server side component that runs on the web server.An applet can use the auth interface classes, while a servlet does not have a
+auth interface. Instead, a servlet waits for client’s HTTP requests and generates a response in every request.
 
 ', 1);
 INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What is the difference between GenericServlet and HttpServlet ?', 'GenericServlet is a generalized and protocol-independent servlet that implements the Servlet and ServletConfig interfaces. Those
@@ -618,7 +620,7 @@ INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What is the structur
 case the request failed, the status code can be used to find out the reason behind the failure. If your servlet does not return a
 status code, the success status code, HttpServletResponse.SC_OK, is returned by default.
 • HTTP Headers: they contain more information about the response. For example, the headers may specify the date/time after
-which the response is considered stale, or the form of encoding used to safely transfer the entity to the user. See how to retrieve
+which the response is considered stale, or the form of encoding used to safely transfer the entity to the auth. See how to retrieve
 headers in Servlet here.
 • Body: it contains the content of the response. The body may contain HTML code, an image, etc. The body consists of the data
 bytes transmitted in an HTTP transaction message immediately following the headers.
@@ -682,7 +684,7 @@ and % >. The different types of directives are shown below:
 
 ', 1);
 INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What are JSP actions ?', 'JSP actions use constructs in XML syntax to control the behavior of the servlet engine. JSP actions are executed when a JSP
-page is requested. They can be dynamically inserted into a file, re-use JavaBeans components, forward the user to another page,
+page is requested. They can be dynamically inserted into a file, re-use JavaBeans components, forward the auth to another page,
 or generate HTML for the Java plugin.Some of the available actions are listed below:
 • jsp:include - includes a file, when the JSP page is requested.
 • jsp:useBean - finds or instantiates a JavaBean.
@@ -693,7 +695,7 @@ or generate HTML for the Java plugin.Some of the available actions are listed be
 
 ', 1);
 INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What are Scriptlets ?', 'In Java Server Pages (JSP) technology, a scriptlet is a piece of Java-code embedded in a JSP page. The scriptlet is everything
-inside the tags. Between these tags, a user can add any valid scriplet.
+inside the tags. Between these tags, a auth can add any valid scriplet.
 
 ', 1);
 INSERT INTO question (QUESTION, ANSWER, COURSE_ID) VALUES ('What are Decalarations ?', 'Declarations are similar to variable declarations in Java. Declarations are used to declare variables for subsequent use in expres-
