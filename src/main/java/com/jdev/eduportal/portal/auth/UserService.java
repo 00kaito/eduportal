@@ -1,4 +1,4 @@
-package com.jdev.eduportal.domains.user;
+package com.jdev.eduportal.portal.auth;
 
 import com.jdev.eduportal.service.DbSecureRemover;
 import org.springframework.stereotype.Service;
@@ -55,5 +55,19 @@ public class UserService {
 
         DbSecureRemover dbSecureRemover = new DbSecureRemover(userRepository);
         return dbSecureRemover.removeElementById(userId);
+    }
+
+
+    public boolean verifyUser(String email, String password){
+        Optional<User> userOptional = userRepository.findByEmailAndPassword(email, password);
+        if(userOptional.isPresent()){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean enrollInCourse(long id){
+
+        return true;
     }
 }

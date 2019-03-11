@@ -1,7 +1,8 @@
-package com.jdev.eduportal.domains.course;
+package com.jdev.eduportal.portal.course;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Question {
     private Long id;
 
     private String question;
+    @Column(columnDefinition="TEXT")
     private String answer;
 
     @ManyToOne(cascade = CascadeType.PERSIST)

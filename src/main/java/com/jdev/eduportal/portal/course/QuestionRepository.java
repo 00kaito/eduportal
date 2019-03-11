@@ -1,4 +1,4 @@
-package com.jdev.eduportal.domains.course;
+package com.jdev.eduportal.portal.course;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

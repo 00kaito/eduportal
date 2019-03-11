@@ -1,6 +1,6 @@
-package com.jdev.eduportal.domains.course;
+package com.jdev.eduportal.portal.course;
 
-import com.jdev.eduportal.domains.user.User;
+import com.jdev.eduportal.portal.auth.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,6 +23,6 @@ public class MemoProgress {
     private User user;
 
     @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_course_content", nullable = false)
+    @JoinColumn(name = "fk_question", nullable = false)
     private Question question;
 }

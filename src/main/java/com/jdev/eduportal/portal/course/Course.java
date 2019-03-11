@@ -1,6 +1,6 @@
-package com.jdev.eduportal.domains.course;
+package com.jdev.eduportal.portal.course;
 
-import com.jdev.eduportal.domains.user.User;
+import com.jdev.eduportal.portal.auth.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +16,7 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String courseName;
+    private String name;
     private String description;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
@@ -28,12 +28,12 @@ public class Course {
     public Course() {
     }
 
-    public Course(String courseName) {
-        this.courseName = courseName;
+    public Course(String name) {
+        this.name = name;
     }
 
-    public Course(String courseName, String description) {
-        this.courseName = courseName;
+    public Course(String name, String description) {
+        this.name = name;
         this.description = description;
     }
 }

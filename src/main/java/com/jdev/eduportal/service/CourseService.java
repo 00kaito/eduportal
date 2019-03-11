@@ -1,9 +1,10 @@
 package com.jdev.eduportal.service;
 
-import com.jdev.eduportal.domains.course.Course;
-import com.jdev.eduportal.domains.course.CourseRepository;
+import com.jdev.eduportal.portal.course.Course;
+import com.jdev.eduportal.portal.course.CourseRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,7 +20,7 @@ public class CourseService {
 
 
     public Course createNewCourse(Course course){
-        return createNewCourse(course.getCourseName(), course.getDescription());
+        return createNewCourse(course.getName(), course.getDescription());
     }
 
 
@@ -51,13 +52,10 @@ public class CourseService {
 
         DbSecureRemover dbSecureRemover = new DbSecureRemover(courseRepo);
         return dbSecureRemover.removeElementById(courseId);
-//
-//        Optional<Course> course = courseRepo.findById(courseId);
-//        if(course.isPresent()){
-//            courseRepo.delete(course.get());
-//            return true;
-//        }
-//        return false;
+    }
+
+    public List<Course> getList(){
+        return courseRepo.findAll();
     }
 
 

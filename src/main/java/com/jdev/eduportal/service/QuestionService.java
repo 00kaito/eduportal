@@ -1,8 +1,8 @@
 package com.jdev.eduportal.service;
 
-import com.jdev.eduportal.domains.course.Course;
-import com.jdev.eduportal.domains.course.Question;
-import com.jdev.eduportal.domains.course.QuestionRepository;
+import com.jdev.eduportal.portal.course.Course;
+import com.jdev.eduportal.portal.course.Question;
+import com.jdev.eduportal.portal.course.QuestionRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

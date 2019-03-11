@@ -1,9 +1,10 @@
-package com.jdev.eduportal.domains.user;
+package com.jdev.eduportal.portal.auth;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -25,6 +26,20 @@ public class UserController {
     public String registerPage(@ModelAttribute User user){
         service.createUser(user);
         return "register";
+    }
+
+    @PostMapping("/signin")
+    public String loginPage(@ModelAttribute User user){
+        if(service.verifyUser(user.getEmail(), user.getPassword())){
+            return "index";
+        }
+        return "register";
+    }
+
+    @GetMapping("/enroll/{id}")
+    public String enroll(@PathVariable long id) {
+        service.enrollInCourse(id);
+        return "courses";
     }
 
 

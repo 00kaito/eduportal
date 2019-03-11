@@ -1,6 +1,5 @@
 package com.jdev.eduportal.service;
 
-import com.jdev.eduportal.domains.course.Course;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

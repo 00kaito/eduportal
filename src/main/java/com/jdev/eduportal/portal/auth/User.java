@@ -1,7 +1,7 @@
-package com.jdev.eduportal.domains.user;
+package com.jdev.eduportal.portal.auth;
 
-import com.jdev.eduportal.domains.course.Course;
-import com.jdev.eduportal.domains.course.MemoProgress;
+import com.jdev.eduportal.portal.course.Course;
+import com.jdev.eduportal.portal.course.MemoProgress;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,7 +30,7 @@ public class User {
     private String password;
 
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_course",
             joinColumns = @JoinColumn(name = "fk_user"),
             inverseJoinColumns = @JoinColumn(name = "fk_course"))
@@ -61,5 +61,6 @@ public class User {
         }
         List<List<MemoProgress>> specificCourseMemoProgress = course.get().getQuestions().stream().map(c -> c.getMemoProgresses()).collect(Collectors.toList());
     }
+
 
 }
